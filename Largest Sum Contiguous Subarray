@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+
+int maxSubArray(int a[],int n){
+    int maxsum=0;
+    int currsum=0;
+    for(int i=0;i<n;i++){
+        currsum+=a[i];
+        if(currsum>maxsum){
+            maxsum=currsum;
+        }
+        if(currsum<0)
+        {
+            currsum=0;
+        }
+    }
+    return maxsum;
+}
+int main() {
+    // Write C code here
+    int n,a[100];
+    printf("Enter the size of array: ");
+    scanf("%d",&n);
+    printf("Enter the array:");
+    for(int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    printf("%d", maxSubArray(a,n));
+
+    return 0;
+}
